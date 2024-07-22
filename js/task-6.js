@@ -23,18 +23,20 @@ function createBoxes() {
 
   let size = 30;
 
-  for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div');
-    box.classList.add('box');
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    box.style.backgroundColor = getRandomHexColor();
+  const fragment = document.createDocumentFragment();
 
-    boxesContainer.appendChild(box);
+    for (let i = 0; i < amount; i++) {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      box.style.width = `${size}px`;
+      box.style.height = `${size}px`;
+      box.style.backgroundColor = getRandomHexColor();
+      fragment.appendChild(box);
 
-    size += 10;
-  }
+      size += 10;
+    }
 
+    boxesContainer.appendChild(fragment);
   input.value = '';
 }
 
